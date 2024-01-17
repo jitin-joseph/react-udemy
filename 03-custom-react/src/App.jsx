@@ -5,10 +5,16 @@ import TabButton from './components/TabButton.jsx';
 
 
 function App() {
-
-  function handleSelect(){
-    console.log("inside handleSelect");
+  let tabContent = "Please click a button";
+  function handleSelect(selectedButton){
+    //selectedButton => 'components','jsx','props','state'
+   
+    console.log("inside handleSelect selectedButton => "+selectedButton);
+    tabContent = selectedButton;
+    
   }
+
+  console.log("App component executing");
 
   return (
     <div>
@@ -30,11 +36,12 @@ function App() {
       <section id="examples">
         <h2>Examples</h2>
         <menu>
-          <TabButton onSelect={handleSelect}>Components</TabButton>
-          <TabButton onSelect={handleSelect}>JSX</TabButton>
-          <TabButton onSelect={handleSelect}>Props</TabButton>
-          <TabButton onSelect={handleSelect}>State</TabButton>
+          <TabButton onSelect={()=>handleSelect('components')}>Components</TabButton>
+          <TabButton onSelect={()=>handleSelect('jsx')}>JSX</TabButton>
+          <TabButton onSelect={()=>handleSelect('props')}>Props</TabButton>
+          <TabButton onSelect={()=>handleSelect('state')}>State</TabButton>
         </menu>
+        {tabContent}
       </section>
     </div>
   );
