@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { CORE_CONCEPTS } from './data.js';
 import Header from './components/Header.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
@@ -5,12 +6,15 @@ import TabButton from './components/TabButton.jsx';
 
 
 function App() {
+  //const stateArray = useState('Please click a button in usestate');
+  const [selectedTopic,setSelectedTopic] = useState('Please click a button in usestate');
   let tabContent = "Please click a button";
   function handleSelect(selectedButton){
     //selectedButton => 'components','jsx','props','state'
-   
+    setSelectedTopic(selectedButton);
     console.log("inside handleSelect selectedButton => "+selectedButton);
     tabContent = selectedButton;
+
     
   }
 
@@ -41,7 +45,7 @@ function App() {
           <TabButton onSelect={()=>handleSelect('props')}>Props</TabButton>
           <TabButton onSelect={()=>handleSelect('state')}>State</TabButton>
         </menu>
-        {tabContent}
+        {selectedTopic}
       </section>
     </div>
   );
