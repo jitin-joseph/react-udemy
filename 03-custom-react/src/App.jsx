@@ -8,7 +8,7 @@ import TabButton from './components/TabButton.jsx';
 
 function App() {
   //const stateArray = useState('Please click a button in usestate');
-  const [selectedTopic,setSelectedTopic] = useState('Please click a button in usestate');
+  const [selectedTopic,setSelectedTopic] = useState('');
   let tabContent = "Please click a button";
   function handleSelect(selectedButton){
     //selectedButton => 'components','jsx','props','state'
@@ -46,11 +46,12 @@ function App() {
           <TabButton onSelect={()=>handleSelect('props')}>Props</TabButton>
           <TabButton onSelect={()=>handleSelect('state')}>State</TabButton>
         </menu>
+        {!selectedTopic ? <p>Please select a topic.</p> :
         <div id="tab-content">
           <h3>{EXAMPLES[selectedTopic].title}</h3>
           <p>{EXAMPLES[selectedTopic].description}</p>
           <pre>{EXAMPLES[selectedTopic].code}</pre>
-        </div>
+        </div>}
       </section>
     </div>
   );
