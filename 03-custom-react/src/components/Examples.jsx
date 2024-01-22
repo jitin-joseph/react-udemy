@@ -18,10 +18,10 @@ export default function Examples(){
     <Section id="examples">
     <h2>Examples</h2>
     <menu>
-      <TabButton onSelect={()=>handleSelect('components')} isSelected={selectedTopic=='components'}>Components</TabButton>
-      <TabButton onSelect={()=>handleSelect('jsx')} isSelected={selectedTopic=='jsx'}>JSX</TabButton>
-      <TabButton onSelect={()=>handleSelect('props')} isSelected={selectedTopic=='props'}>Props</TabButton>
-      <TabButton onSelect={()=>handleSelect('state')} isSelected={selectedTopic=='state'}>State</TabButton>
+      <TabButton onClick={()=>handleSelect('components')} isSelected={selectedTopic=='components'}>Components</TabButton>
+      <TabButton onClick={()=>handleSelect('jsx')} isSelected={selectedTopic=='jsx'}>JSX</TabButton>
+      <TabButton onClick={()=>handleSelect('props')} isSelected={selectedTopic=='props'}>Props</TabButton>
+      <TabButton onClick={()=>handleSelect('state')} isSelected={selectedTopic=='state'}>State</TabButton>
     </menu>
     {!selectedTopic ? <p>Please select a topic.</p> :
     <div id="tab-content">
