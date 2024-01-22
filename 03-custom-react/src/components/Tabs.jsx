@@ -1,9 +1,10 @@
-export default function Tabs({children,buttons}){
+export default function Tabs({children,buttons,buttonsContainer}){
+    const ButtonsContainer = buttonsContainer;//converting the string to a custom component, the new vaible should be captial letter
     return(
         <>
-        <menu>
+        <ButtonsContainer>
         {buttons}
-        </menu>
+        </ButtonsContainer>
         {children}
         </>
     )
